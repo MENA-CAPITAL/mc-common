@@ -1,4 +1,39 @@
 package com.mc.mc_common.enums;
 
-public class ErrorCode {
+public enum ErrorCode {
+
+    // General
+    INTERNAL_SERVER_ERROR,
+    INVALID_REQUEST,
+    RESOURCE_NOT_FOUND,
+
+    // Authentication
+    INVALID_CREDENTIALS,
+    TOKEN_EXPIRED,
+    UNAUTHORIZED_ACCESS,
+    FORBIDDEN_ACCESS,
+
+    // User
+    USER_NOT_FOUND,
+    USER_ALREADY_EXISTS,
+    INVALID_USER_STATUS,
+
+    // Wallet / Transaction
+    INSUFFICIENT_BALANCE,
+    INVALID_TRANSACTION,
+    TRANSACTION_FAILED,
+
+    // KYC
+    KYC_NOT_SUBMITTED,
+    KYC_ALREADY_VERIFIED,
+    INVALID_KYC_DOCUMENT,
+
+    // Trading Account
+    TRADING_ACCOUNT_NOT_FOUND,
+    MT5_ACCOUNT_CREATION_FAILED,
+
+    // System
+    SERVICE_UNAVAILABLE,
+    DATABASE_ERROR
+
 }
