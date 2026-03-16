@@ -24,6 +24,9 @@ public enum ErrorCode {
     TRANSACTION_FAILED,
     WALLET_NOT_FOUND,
 
+    //Deposit
+    INVALID_DEPOSIT_AMOUNT,
+
     // KYC
     KYC_NOT_SUBMITTED,
     KYC_ALREADY_VERIFIED,
