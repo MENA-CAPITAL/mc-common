@@ -35,6 +35,7 @@ public enum ErrorCode {
     // Trading Account
     TRADING_ACCOUNT_NOT_FOUND,
     MT5_ACCOUNT_CREATION_FAILED,
+    INVALID_ACCOUNT_TYPE,
 
     // System
     SERVICE_UNAVAILABLE,
