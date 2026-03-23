@@ -1,44 +1,53 @@
 package com.mc.mc_common.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum ErrorCode {
 
-    // General
-    INTERNAL_SERVER_ERROR,
-    INVALID_REQUEST,
-    RESOURCE_NOT_FOUND,
+    // ================= GENERAL =================
+    INTERNAL_SERVER_ERROR("5000", "Internal server error"),
+    INVALID_REQUEST("4000", "Invalid request"),
+    RESOURCE_NOT_FOUND("4004", "Resource not found"),
+    VALIDATION_ERROR("4001", "Validation failed"),
 
-    // Authentication
-    INVALID_CREDENTIALS,
-    TOKEN_EXPIRED,
-    UNAUTHORIZED_ACCESS,
-    FORBIDDEN_ACCESS,
+    // ================= AUTH =================
+    INVALID_CREDENTIALS("1001", "Invalid credentials"),
+    TOKEN_EXPIRED("1002", "Token expired"),
+    UNAUTHORIZED_ACCESS("1003", "Unauthorized access"),
+    FORBIDDEN_ACCESS("1004", "Forbidden access"),
 
-    // User
-    USER_NOT_FOUND,
-    USER_ALREADY_EXISTS,
-    INVALID_USER_STATUS,
+    // ================= USER =================
+    USER_NOT_FOUND("2001", "User not found"),
+    USER_ALREADY_EXISTS("2002", "User already exists"),
+    INVALID_USER_STATUS("2003", "Invalid user status"),
 
-    // Wallet / Transaction
-    INSUFFICIENT_BALANCE,
-    INVALID_TRANSACTION,
-    TRANSACTION_FAILED,
-    WALLET_NOT_FOUND,
+    // ================= WALLET / TRANSACTION =================
+    WALLET_NOT_FOUND("3001", "Wallet not found"),
+    INSUFFICIENT_BALANCE("3002", "Insufficient balance"),
+    INVALID_TRANSACTION("3003", "Invalid transaction"),
+    TRANSACTION_FAILED("3004", "Transaction failed"),
+    INVALID_DEPOSIT_AMOUNT("3005", "Invalid deposit amount"),
 
-    //Deposit
-    INVALID_DEPOSIT_AMOUNT,
+    // ================= KYC =================
+    KYC_NOT_SUBMITTED("4001", "KYC not submitted"),
+    KYC_ALREADY_VERIFIED("4002", "KYC already verified"),
+    INVALID_KYC_DOCUMENT("4003", "Invalid KYC document"),
 
-    // KYC
-    KYC_NOT_SUBMITTED,
-    KYC_ALREADY_VERIFIED,
-    INVALID_KYC_DOCUMENT,
+    // ================= TRADING =================
+    TRADING_ACCOUNT_NOT_FOUND("5001", "Trading account not found"),
+    MT5_ACCOUNT_CREATION_FAILED("5002", "MT5 account creation failed"),
+    INVALID_ACCOUNT_TYPE("5003", "Invalid account type"),
 
-    // Trading Account
-    TRADING_ACCOUNT_NOT_FOUND,
-    MT5_ACCOUNT_CREATION_FAILED,
-    INVALID_ACCOUNT_TYPE,
+    // ================= SYSTEM =================
+    SERVICE_UNAVAILABLE("9001", "Service unavailable"),
+    DATABASE_ERROR("9002", "Database error");
 
-    // System
-    SERVICE_UNAVAILABLE,
-    DATABASE_ERROR
+    private final String code;
+    private final String defaultMessage;
 
+    ErrorCode(String code, String defaultMessage) {
+        this.code = code;
+        this.defaultMessage = defaultMessage;
+    }
 }
