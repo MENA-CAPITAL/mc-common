@@ -1,6 +1,7 @@
 package com.mc.mc_common.dto;
 
 
+import com.mc.mc_common.enums.ResponseStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,9 +15,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class ApiResponse<T> {
 
-    private boolean success;
+    private LocalDateTime timestamp;
+    private ResponseStatus status;
     private String message;
     private T data;
-    private LocalDateTime timestamp;
 
 }
