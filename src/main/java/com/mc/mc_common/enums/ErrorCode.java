@@ -21,6 +21,7 @@ public enum ErrorCode {
     USER_NOT_FOUND("2001", "User not found"),
     USER_ALREADY_EXISTS("2002", "User already exists"),
     INVALID_USER_STATUS("2003", "Invalid user status"),
+    EMAIL_ALREADY_EXISTS("2004", "Email already exists"),
 
     // ================= WALLET / TRANSACTION =================
     WALLET_NOT_FOUND("3001", "Wallet not found"),
@@ -39,9 +40,19 @@ public enum ErrorCode {
     MT5_ACCOUNT_CREATION_FAILED("5002", "MT5 account creation failed"),
     INVALID_ACCOUNT_TYPE("5003", "Invalid account type"),
 
+    // ================= PASSWORD =================
+    INVALID_PASSWORD("2101", "Invalid password"),
+    CURRENT_PASSWORD_INVALID("2102", "Current password is incorrect"),
+    PASSWORD_MISMATCH("2103", "Password mismatch"),
+    NEW_PASSWORD_SAME_AS_OLD_PASSWORD("2104", "New password cannot be same as old password"),
+
+    // ================= BUSINESS VALIDATION =================
+    COMPANY_NAME_REQUIRED("2201", "Company name is required"),
+
     // ================= SYSTEM =================
     SERVICE_UNAVAILABLE("9001", "Service unavailable"),
     DATABASE_ERROR("9002", "Database error");
+
 
     private final String code;
     private final String defaultMessage;
