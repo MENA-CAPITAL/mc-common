@@ -16,6 +16,7 @@ public enum ErrorCode {
     TOKEN_EXPIRED("1002", "Token expired"),
     UNAUTHORIZED_ACCESS("1003", "Unauthorized access"),
     FORBIDDEN_ACCESS("1004", "Forbidden access"),
+    INVALID_ROLE("1005", "Invalid role"),
 
     // ================= USER =================
     USER_NOT_FOUND("2001", "User not found"),
