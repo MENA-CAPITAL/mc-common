@@ -16,7 +16,7 @@
 	<!-- Project Info -->
 	<groupId>com.mc</groupId>
 	<artifactId>mc-common</artifactId>
-	<version>1.0.8</version>
+	<version>1.0.9</version>
 	<name>mc-common</name>
 	<description>Common utilities, DTOs, enums, and exception handling for MC platform</description>
 

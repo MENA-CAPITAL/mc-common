@@ -1,6 +1,5 @@
 package com.mc.mc_common.dto;
 
-
 import com.mc.mc_common.enums.ResponseStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,9 +14,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class ApiResponse<T> {
 
-    private LocalDateTime timestamp;
+    @Builder.Default
+    private LocalDateTime timestamp = LocalDateTime.now();
+
     private ResponseStatus status;
     private String message;
     private T data;
-
 }

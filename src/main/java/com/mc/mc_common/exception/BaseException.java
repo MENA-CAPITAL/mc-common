@@ -2,19 +2,23 @@ package com.mc.mc_common.exception;
 
 import com.mc.mc_common.enums.ErrorCode;
 import lombok.Getter;
+import org.springframework.http.HttpStatus;
 
 @Getter
 public abstract class BaseException extends RuntimeException {
 
     private final ErrorCode errorCode;
+    private final HttpStatus status;
 
-    public BaseException(ErrorCode errorCode) {
+    protected BaseException(ErrorCode errorCode) {
         super(errorCode.getDefaultMessage());
         this.errorCode = errorCode;
+        this.status = errorCode.getHttpStatus();
     }
 
-    public BaseException(ErrorCode errorCode, String message) {
-        super(message);
+    protected BaseException(ErrorCode errorCode, String message) {
+        super(message != null && !message.isBlank() ? message : errorCode.getDefaultMessage());
         this.errorCode = errorCode;
+        this.status = errorCode.getHttpStatus();
     }
 }
