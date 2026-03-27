@@ -42,15 +42,49 @@ public enum ErrorCode {
     // ================= KYC - PERSONAL =================
     ADDRESS_REQUIRED("KYC_PERSONAL_400", "Address is required", HttpStatus.BAD_REQUEST),
     DOB_REQUIRED("KYC_PERSONAL_401", "Date of birth is required", HttpStatus.BAD_REQUEST),
+    TITLE_REQUIRED("KYC_PERSONAL_402", "Title is required", HttpStatus.BAD_REQUEST),
+    ADDRESS_LINE1_REQUIRED("KYC_PERSONAL_403", "Address line 1 is required", HttpStatus.BAD_REQUEST),
+    CITY_REQUIRED("KYC_PERSONAL_404", "City is required", HttpStatus.BAD_REQUEST),
+    KYC_TYPE_REQUIRED("KYC_PERSONAL_405", "KYC type is required", HttpStatus.BAD_REQUEST),
+    INVALID_KYC_TYPE("KYC_PERSONAL_406", "Invalid KYC type", HttpStatus.BAD_REQUEST),
+    KYC_ALREADY_SUBMITTED("KYC_PERSONAL_409", "KYC already submitted", HttpStatus.CONFLICT),
 
     // ================= KYC - FINANCIAL =================
     FINANCIAL_KYC_NOT_FOUND("KYC_FIN_404", "Financial KYC not found", HttpStatus.NOT_FOUND),
     EMPLOYMENT_STATUS_REQUIRED("KYC_FIN_400", "Employment status is required", HttpStatus.BAD_REQUEST),
     SOURCE_OF_FUNDS_REQUIRED("KYC_FIN_401", "Source of funds is required", HttpStatus.BAD_REQUEST),
+    FINANCIAL_ALREADY_SUBMITTED("KYC_FIN_409", "Financial KYC already submitted", HttpStatus.CONFLICT),
+    INCOME_REQUIRED("KYC_FIN_402", "Annual income is required", HttpStatus.BAD_REQUEST),
+    INVALID_EMPLOYMENT_STATUS("KYC_FIN_403", "Invalid employment status", HttpStatus.BAD_REQUEST),
+    FINANCIAL_EXPERIENCE_REQUIRED("KYC_FIN_404", "Financial experience is required", HttpStatus.BAD_REQUEST),
+    DERIVATIVES_SUITABILITY_REQUIRED("KYC_FIN_405", "Derivatives suitability is required", HttpStatus.BAD_REQUEST),
 
     // ================= KYC - DECLARATION / COMPANY =================
     UBO_IDENTIFIED_REQUIRED("KYC_DECL_400", "UBO identification is required", HttpStatus.BAD_REQUEST),
     UBO_PEP_DETAILS_REQUIRED("KYC_DECL_401", "UBO PEP details are required", HttpStatus.BAD_REQUEST),
+    COMPANY_FINANCIAL_DATA_MISSING("KYC_DECL_402", "Company financial data is missing", HttpStatus.BAD_REQUEST),
+    LEGAL_STRUCTURE_REQUIRED("KYC_DECL_403", "Legal structure is required", HttpStatus.BAD_REQUEST),
+    NATURE_OF_BUSINESS_REQUIRED("KYC_DECL_404", "Nature of business is required", HttpStatus.BAD_REQUEST),
+    COUNTRY_OF_INCORPORATION_REQUIRED("KYC_DECL_405", "Country of incorporation is required", HttpStatus.BAD_REQUEST),
+    ANNUAL_INCOME_REQUIRED("KYC_DECL_406", "Annual income is required", HttpStatus.BAD_REQUEST),
+    NET_ASSETS_REQUIRED("KYC_DECL_407", "Net assets value is required", HttpStatus.BAD_REQUEST),
+    SOURCE_OF_WEALTH_REQUIRED("KYC_DECL_408", "Source of wealth is required", HttpStatus.BAD_REQUEST),
+    INITIAL_DEPOSIT_REQUIRED("KYC_DECL_409", "Initial deposit range is required", HttpStatus.BAD_REQUEST),
+    TRADING_VOLUME_REQUIRED("KYC_DECL_410", "Trading volume range is required", HttpStatus.BAD_REQUEST),
+    ACCOUNT_PURPOSE_REQUIRED("KYC_DECL_411", "Account purpose is required", HttpStatus.BAD_REQUEST),
+    UBO_PEP_REQUIRED("KYC_DECL_412", "UBO PEP selection is required", HttpStatus.BAD_REQUEST),
+    DECLARATION_NOT_FOUND("KYC_DECL_413", "Declaration not found", HttpStatus.NOT_FOUND),
+    DECLARATION_ALREADY_SUBMITTED("KYC_DECL_414", "Declaration already submitted", HttpStatus.CONFLICT),
+
+    // ===================================== SUMSUB ======================================
+    SUMSUB_REQUEST_FAILED("KYC_SUMSUB_500", "Sumsub request failed", HttpStatus.INTERNAL_SERVER_ERROR),
+    SUMSUB_SIGN_FAILED("KYC_SUMSUB_501", "Sumsub signature generation failed", HttpStatus.INTERNAL_SERVER_ERROR),
+    SUMSUB_APPLICANT_ID_MISSING("KYC_SUMSUB_400", "Sumsub applicant ID missing", HttpStatus.BAD_REQUEST),
+    SUMSUB_CREATE_APPLICANT_FAILED("KYC_SUMSUB_401", "Failed to create Sumsub applicant", HttpStatus.INTERNAL_SERVER_ERROR),
+    SUMSUB_APPLICANT_NOT_CREATED("KYC_SUMSUB_402", "Sumsub applicant not created", HttpStatus.BAD_REQUEST),
+    SUMSUB_TOKEN_MISSING("KYC_SUMSUB_403", "Sumsub access token missing", HttpStatus.BAD_REQUEST),
+    SUMSUB_TOKEN_FAILED("KYC_SUMSUB_404", "Failed to generate Sumsub token", HttpStatus.INTERNAL_SERVER_ERROR),
+    KYC_NOT_STARTED("KYC_SUMSUB_405", "KYC process not started", HttpStatus.BAD_REQUEST),
 
     // ================= WALLET / TRANSACTION =================
     WALLET_NOT_FOUND("TXN_404_WALLET", "Wallet not found", HttpStatus.NOT_FOUND),
