@@ -93,10 +93,32 @@ public enum ErrorCode {
     TRANSACTION_FAILED("TXN_500", "Transaction failed", HttpStatus.INTERNAL_SERVER_ERROR),
     INVALID_DEPOSIT_AMOUNT("TXN_401", "Invalid deposit amount", HttpStatus.BAD_REQUEST),
 
-    // ================= TRADING =================
-    TRADING_ACCOUNT_NOT_FOUND("TRADING_404", "Trading account not found", HttpStatus.NOT_FOUND),
-    MT5_ACCOUNT_CREATION_FAILED("TRADING_500", "MT5 account creation failed", HttpStatus.INTERNAL_SERVER_ERROR),
-    INVALID_ACCOUNT_TYPE("TRADING_400", "Invalid account type", HttpStatus.BAD_REQUEST);
+    // ================= TRADING ACCOUNT =================
+    ACCOUNT_NOT_FOUND("TA-001", "Trading account not found", HttpStatus.NOT_FOUND),
+
+    ACCOUNT_ALREADY_EXISTS("TA-002", "Trading account already exists for this type", HttpStatus.CONFLICT),
+
+    MT5_ACCOUNT_CREATION_FAILED("TA-003", "Failed to create MT5 trading account", HttpStatus.BAD_GATEWAY),
+
+    MT5_ACCOUNT_FETCH_FAILED("TA-004", "Failed to fetch MT5 account data", HttpStatus.BAD_GATEWAY),
+
+    MT5_PASSWORD_CHANGE_FAILED("TA-005", "Failed to change MT5 account password", HttpStatus.BAD_GATEWAY),
+
+    ACCOUNT_DISABLED("TA-006", "Trading account is disabled", HttpStatus.BAD_REQUEST),
+
+    ACCOUNT_CLOSED("TA-007", "Trading account is closed", HttpStatus.BAD_REQUEST),
+
+    INVALID_ACCOUNT_STATUS("TA-008", "Invalid account status transition", HttpStatus.BAD_REQUEST),
+
+    INVALID_ACCOUNT_TYPE("TA-009", "Invalid trading account type", HttpStatus.BAD_REQUEST),
+
+    INVALID_LEVERAGE("TA-010", "Invalid leverage value", HttpStatus.BAD_REQUEST),
+
+    DUPLICATE_MT5_LOGIN("TA-011", "MT5 login already mapped", HttpStatus.CONFLICT),
+
+    AUDIT_LOG_FAILED("TA-012", "Failed to save audit log", HttpStatus.INTERNAL_SERVER_ERROR),
+
+    MT5_SERVICE_UNAVAILABLE("TA-013", "MT5 worker service is unavailable", HttpStatus.BAD_GATEWAY);
 
     private final String code;
     private final String defaultMessage;
