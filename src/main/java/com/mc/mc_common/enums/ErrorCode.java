@@ -93,6 +93,49 @@ public enum ErrorCode {
     TRANSACTION_FAILED("TXN_500", "Transaction failed", HttpStatus.INTERNAL_SERVER_ERROR),
     INVALID_DEPOSIT_AMOUNT("TXN_401", "Invalid deposit amount", HttpStatus.BAD_REQUEST),
 
+    // ================= BANK CONFIGURATION =================
+    BANK_NOT_FOUND("BANK_404", "Bank not found", HttpStatus.NOT_FOUND),
+    BANK_ALREADY_EXISTS("BANK_409", "Bank already exists", HttpStatus.CONFLICT),
+    BANK_INACTIVE("BANK_400", "Bank is inactive", HttpStatus.BAD_REQUEST),
+
+    BANK_ACCOUNT_NOT_FOUND("BANK_ACC_404", "Bank account not found", HttpStatus.NOT_FOUND),
+    BANK_ACCOUNT_ALREADY_EXISTS("BANK_ACC_409", "Bank account already exists", HttpStatus.CONFLICT),
+    BANK_ACCOUNT_INACTIVE("BANK_ACC_400", "Bank account is inactive", HttpStatus.BAD_REQUEST),
+    INVALID_BANK_CURRENCY("BANK_ACC_400_CUR", "Invalid currency for selected bank", HttpStatus.BAD_REQUEST),
+
+
+    // ================= DEPOSIT =================
+    DEPOSIT_TICKET_NOT_FOUND("DEP_404", "Deposit request not found", HttpStatus.NOT_FOUND),
+    INVALID_DEPOSIT_METHOD("DEP_400_METHOD", "Invalid deposit method", HttpStatus.BAD_REQUEST),
+    BANK_DETAILS_REQUIRED("DEP_400_BANK", "Bank details must be added before deposit", HttpStatus.BAD_REQUEST),
+    INVALID_DEPOSIT_REQUEST("DEP_400_REQ", "Invalid deposit request", HttpStatus.BAD_REQUEST),
+    DEPOSIT_ALREADY_PROCESSED("DEP_409", "Deposit already processed", HttpStatus.CONFLICT),
+
+
+    // ================= WITHDRAWAL =================
+    WITHDRAWAL_TICKET_NOT_FOUND("WDR_404", "Withdrawal request not found", HttpStatus.NOT_FOUND),
+    INVALID_WITHDRAWAL_AMOUNT("WDR_400_AMT", "Invalid withdrawal amount", HttpStatus.BAD_REQUEST),
+    WITHDRAWAL_ALREADY_PROCESSED("WDR_409", "Withdrawal already processed", HttpStatus.CONFLICT),
+    WITHDRAWAL_NOT_ALLOWED("WDR_403", "Withdrawal not allowed", HttpStatus.FORBIDDEN),
+
+
+    // ================= TRANSACTION EXTENSIONS =================
+    INVALID_BANK_ACCOUNT_TYPE("TXN_400_ACC", "Invalid account type", HttpStatus.BAD_REQUEST),
+    MT5_OPERATION_FAILED("TXN_502_MT5", "MT5 operation failed", HttpStatus.BAD_GATEWAY),
+    CONCURRENT_TRANSACTION("TXN_409_CONFLICT", "Concurrent transaction detected", HttpStatus.CONFLICT),
+
+
+    // ================= REPORTS =================
+    REPORT_DATA_NOT_FOUND("RPT_404", "Report data not found", HttpStatus.NOT_FOUND),
+    INVALID_REPORT_FILTER("RPT_400_FILTER", "Invalid report filter", HttpStatus.BAD_REQUEST),
+    EXPORT_FAILED("RPT_500_EXPORT", "Report export failed", HttpStatus.INTERNAL_SERVER_ERROR),
+    EMAIL_FAILED("RPT_500_EMAIL", "Failed to send report email", HttpStatus.INTERNAL_SERVER_ERROR),
+
+
+    // ================= GENERAL =================
+    DATA_NOT_FOUND("GEN_404", "Requested data not found", HttpStatus.NOT_FOUND),
+    OPERATION_NOT_ALLOWED("GEN_403", "Operation not allowed", HttpStatus.FORBIDDEN),
+
     // ================= TRADING ACCOUNT =================
     ACCOUNT_NOT_FOUND("TA-001", "Trading account not found", HttpStatus.NOT_FOUND),
 
