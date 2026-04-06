@@ -110,6 +110,8 @@ public enum ErrorCode {
     BANK_DETAILS_REQUIRED("DEP_400_BANK", "Bank details must be added before deposit", HttpStatus.BAD_REQUEST),
     INVALID_DEPOSIT_REQUEST("DEP_400_REQ", "Invalid deposit request", HttpStatus.BAD_REQUEST),
     DEPOSIT_ALREADY_PROCESSED("DEP_409", "Deposit already processed", HttpStatus.CONFLICT),
+    DEPOSIT_LIMIT_EXCEEDED("TXN_400_LIMIT", "Deposit exceeds allowed limit", HttpStatus.BAD_REQUEST),
+    INVALID_DEPOSIT_RULE("TXN_400_RULE", "Invalid deposit rule configuration", HttpStatus.BAD_REQUEST),
 
 
     // ================= WITHDRAWAL =================
@@ -130,6 +132,12 @@ public enum ErrorCode {
     INVALID_REPORT_FILTER("RPT_400_FILTER", "Invalid report filter", HttpStatus.BAD_REQUEST),
     EXPORT_FAILED("RPT_500_EXPORT", "Report export failed", HttpStatus.INTERNAL_SERVER_ERROR),
     EMAIL_FAILED("RPT_500_EMAIL", "Failed to send report email", HttpStatus.INTERNAL_SERVER_ERROR),
+
+    // ================= FILE UPLOAD =================
+    FILE_UPLOAD_FAILED("FILE_500", "File upload failed", HttpStatus.INTERNAL_SERVER_ERROR),
+    INVALID_FILE_TYPE("FILE_400_TYPE", "Invalid file type", HttpStatus.BAD_REQUEST),
+    FILE_TOO_LARGE("FILE_400_SIZE", "File size exceeds limit", HttpStatus.BAD_REQUEST),
+    FILE_NOT_FOUND("FILE_404", "File not found", HttpStatus.NOT_FOUND),
 
 
     // ================= GENERAL =================
@@ -162,6 +170,8 @@ public enum ErrorCode {
     AUDIT_LOG_FAILED("TA-012", "Failed to save audit log", HttpStatus.INTERNAL_SERVER_ERROR),
 
     MT5_SERVICE_UNAVAILABLE("TA-013", "MT5 worker service is unavailable", HttpStatus.BAD_GATEWAY);
+
+
 
     private final String code;
     private final String defaultMessage;
