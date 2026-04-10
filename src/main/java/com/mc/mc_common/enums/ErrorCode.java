@@ -125,6 +125,7 @@ public enum ErrorCode {
     INVALID_BANK_ACCOUNT_TYPE("TXN_400_ACC", "Invalid account type", HttpStatus.BAD_REQUEST),
     MT5_OPERATION_FAILED("TXN_502_MT5", "MT5 operation failed", HttpStatus.BAD_GATEWAY),
     CONCURRENT_TRANSACTION("TXN_409_CONFLICT", "Concurrent transaction detected", HttpStatus.CONFLICT),
+    INVALID_PAYMENT_ACCOUNT("TXN_400_PAYMENT", "Invalid payment account", HttpStatus.BAD_REQUEST),
 
 
     // ================= REPORTS =================
