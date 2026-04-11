@@ -16,7 +16,7 @@
 	<!-- Project Info -->
 	<groupId>com.mc</groupId>
 	<artifactId>mc-common</artifactId>
-	<version>1.2.2</version>
+	<version>1.2.3</version>
 	<name>mc-common</name>
 	<description>Common utilities, DTOs, enums, and exception handling for MC platform</description>
 	<packaging>jar</packaging>
@@ -68,6 +68,11 @@
 			<groupId>jakarta.servlet</groupId>
 			<artifactId>jakarta.servlet-api</artifactId>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
 		</dependency>
 
 	</dependencies>
