@@ -1,5 +1,6 @@
 package com.mc.mc_common.exception;
 
+import com.mc.mc_common.dto.ApiResponse;
 import com.mc.mc_common.dto.ErrorResponse;
 import com.mc.mc_common.dto.ValidationError;
 import com.mc.mc_common.enums.ErrorCode;
@@ -8,7 +9,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
@@ -112,5 +115,18 @@ public class GlobalExceptionHandler {
                 .field(violation.getPropertyPath().toString())
                 .message(violation.getMessage())
                 .build();
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<ApiResponse<?>> handleDataIntegrity(DataIntegrityViolationException ex) {
+
+        log.warn("Data Integrity Violation | message={}", ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(ApiResponse.builder()
+                        .status(ResponseStatus.ERROR) // ✅ FIXED (no breaking)
+                        .message("Duplicate record or constraint violation")
+                        .data(null)
+                        .build());
     }
 }
