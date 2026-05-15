@@ -30,6 +30,11 @@ public enum ErrorCode {
     CURRENT_PASSWORD_INVALID("USER_PWD_401", "Current password is incorrect", HttpStatus.BAD_REQUEST),
     PASSWORD_MISMATCH("USER_PWD_402", "Password mismatch", HttpStatus.BAD_REQUEST),
     NEW_PASSWORD_SAME_AS_OLD_PASSWORD("USER_PWD_403", "New password cannot be same as old password", HttpStatus.BAD_REQUEST),
+    INVALID_STAGE("USER_STAGE_400", "Invalid client stage", HttpStatus.BAD_REQUEST),
+    INVALID_MANUAL_STAGE_UPDATE("USER_STAGE_401", "Manual stage update is not allowed", HttpStatus.BAD_REQUEST),
+    INVALID_STATUS("USER_STATUS_400", "Invalid account status", HttpStatus.BAD_REQUEST),
+    SALES_USER_REQUIRED("USER_REQUIRED_400", "Sales User is not found",HttpStatus.BAD_REQUEST),
+    FEATURE_NOT_IMPLEMENTED("FEATURE_NOT_IMPLEMENTED_400", "feature need to be implemented", HttpStatus.BAD_REQUEST),
 
     COMPANY_NAME_REQUIRED("USER_BIZ_400", "Company name is required", HttpStatus.BAD_REQUEST),
 
@@ -127,6 +132,11 @@ public enum ErrorCode {
     CONCURRENT_TRANSACTION("TXN_409_CONFLICT", "Concurrent transaction detected", HttpStatus.CONFLICT),
     INVALID_PAYMENT_ACCOUNT("TXN_400_PAYMENT", "Invalid payment account", HttpStatus.BAD_REQUEST),
     INSUFFICIENT_MT5_BALANCE("TXN_400_MT5_BAL", "Insufficient MT5 balance", HttpStatus.BAD_REQUEST),
+    INVALID_AMOUNT("TXN_400_INV_AMT","Invalid amount provided",HttpStatus.BAD_REQUEST),
+    DEPOSITS_DISABLED("TXN_400_DPST_DISABLED","Deposit is disabled for this user",HttpStatus.BAD_REQUEST),
+    WITHDRAWALS_DISABLED("TXN_400_WDRL_DISABLED","Withdrawal is disabled for this user",HttpStatus.BAD_REQUEST),
+    WALLET_TO_MT5_DISABLED("TXN_400_WLT_TO_MT5_DISABLED","Wallet to MT5 is disabled for this user",HttpStatus.BAD_REQUEST),
+    MT5_TO_WALLET_DISABLED("TXN_400_MT5_TO_WALT_DISABLED","MT5 to Wallet is disabled for this user",HttpStatus.BAD_REQUEST),
 
 
     // ================= REPORTS =================
@@ -170,6 +180,8 @@ public enum ErrorCode {
     DUPLICATE_MT5_LOGIN("TA-011", "MT5 login already mapped", HttpStatus.CONFLICT),
 
     AUDIT_LOG_FAILED("TA-012", "Failed to save audit log", HttpStatus.INTERNAL_SERVER_ERROR),
+
+    INVALID_RESPONSE("TA-14", "Provided invalid data",HttpStatus.BAD_REQUEST),
 
     MT5_SERVICE_UNAVAILABLE("TA-013", "MT5 worker service is unavailable", HttpStatus.BAD_GATEWAY);
 
