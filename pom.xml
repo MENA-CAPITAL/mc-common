@@ -16,12 +16,12 @@
 	<!-- Project Info -->
 	<groupId>com.mc</groupId>
 	<artifactId>mc-common</artifactId>
-	<version>1.2.3</version>
+	<version>1.2.4</version>
 	<name>mc-common</name>
 	<description>Common utilities, DTOs, enums, and exception handling for MC platform</description>
 	<packaging>jar</packaging>
 
-	<!-- ✅ GitHub Packages -->
+	<!-- GitHub Packages -->
 	<distributionManagement>
 		<repository>
 			<id>github</id>
