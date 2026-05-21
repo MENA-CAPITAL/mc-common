@@ -35,13 +35,13 @@ public class GlobalExceptionHandler {
 
         ErrorResponse response = ErrorResponse.builder()
                 .status(ResponseStatus.ERROR)
-                .errorCode(ex.getErrorCode().getCode()) // ✅ FIXED (no breaking)
+                .errorCode(ex.getErrorCode().getCode())
                 .message(ex.getMessage())
                 .path(request.getRequestURI())
                 .timestamp(LocalDateTime.now())
                 .build();
 
-        return ResponseEntity.status(ex.getStatus()).body(response);
+        return ResponseEntity.ok(response);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -60,14 +60,14 @@ public class GlobalExceptionHandler {
 
         ErrorResponse response = ErrorResponse.builder()
                 .status(ResponseStatus.ERROR)
-                .errorCode(ErrorCode.VALIDATION_FAILED.getCode()) // ✅ FIXED
+                .errorCode(ErrorCode.VALIDATION_FAILED.getCode())
                 .message(ErrorCode.VALIDATION_FAILED.getDefaultMessage())
                 .errors(errors)
                 .path(request.getRequestURI())
                 .timestamp(LocalDateTime.now())
                 .build();
 
-        return ResponseEntity.status(ErrorCode.VALIDATION_FAILED.getHttpStatus()).body(response);
+        return ResponseEntity.ok(response);
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
@@ -82,7 +82,7 @@ public class GlobalExceptionHandler {
 
         ErrorResponse response = ErrorResponse.builder()
                 .status(ResponseStatus.ERROR)
-                .errorCode(ErrorCode.VALIDATION_FAILED.getCode()) // ✅ FIXED
+                .errorCode(ErrorCode.VALIDATION_FAILED.getCode())
                 .message(ErrorCode.VALIDATION_FAILED.getDefaultMessage())
                 .errors(errors)
                 .path(request.getRequestURI())
@@ -101,7 +101,7 @@ public class GlobalExceptionHandler {
 
         ErrorResponse response = ErrorResponse.builder()
                 .status(ResponseStatus.ERROR)
-                .errorCode(ErrorCode.INTERNAL_SERVER_ERROR.getCode()) // ✅ FIXED
+                .errorCode(ErrorCode.INTERNAL_SERVER_ERROR.getCode())
                 .message(ErrorCode.INTERNAL_SERVER_ERROR.getDefaultMessage())
                 .path(request.getRequestURI())
                 .timestamp(LocalDateTime.now())
@@ -124,7 +124,7 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.CONFLICT)
                 .body(ApiResponse.builder()
-                        .status(ResponseStatus.ERROR) // ✅ FIXED (no breaking)
+                        .status(ResponseStatus.ERROR)
                         .message("Duplicate record or constraint violation")
                         .data(null)
                         .build());
