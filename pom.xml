@@ -16,7 +16,7 @@
 	<!-- Project Info -->
 	<groupId>com.mc</groupId>
 	<artifactId>mc-common</artifactId>
-	<version>1.2.5</version>
+	<version>1.2.6</version>
 	<name>mc-common</name>
 	<description>Common utilities, DTOs, enums, and exception handling for MC platform</description>
 	<packaging>jar</packaging>
@@ -42,6 +42,11 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<!-- Validation -->
