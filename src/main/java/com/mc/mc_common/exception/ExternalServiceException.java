@@ -6,4 +6,8 @@ public class ExternalServiceException extends BaseException {
     public ExternalServiceException(ErrorCode code) {
         super(code);
     }
+
+    public ExternalServiceException(ErrorCode code,String message) {
+        super(code, message);
+    }
 }
