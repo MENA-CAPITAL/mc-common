@@ -14,21 +14,18 @@ jobs:
       packages: write
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
-
-          # IMPORTANT
           server-id: github
           server-username: GITHUB_ACTOR
           server-password: GITHUB_TOKEN
 
       - name: Publish to GitHub Packages
-        run: mvn -B clean deploy
+        run: mvn -X clean deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
