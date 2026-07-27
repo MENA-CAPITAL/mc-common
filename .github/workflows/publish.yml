@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - release/**        # catches any release branch
+      - release/v1.0.0        # catches any release branch
 
 jobs:
   publish:
