@@ -3,7 +3,7 @@ name: Publish mc-common
 on:
   push:
     branches:
-      - main
+      - release/v1.0.0
 
 jobs:
   publish:
