@@ -53,6 +53,18 @@ public enum ErrorCode {
     KYC_TYPE_REQUIRED("KYC_PERSONAL_405", "KYC type is required", HttpStatus.BAD_REQUEST),
     INVALID_KYC_TYPE("KYC_PERSONAL_406", "Invalid KYC type", HttpStatus.BAD_REQUEST),
     KYC_ALREADY_SUBMITTED("KYC_PERSONAL_409", "KYC already submitted", HttpStatus.CONFLICT),
+    FAMILY_NAME_REQUIRED("KYC_PERSONAL_410", "Family name is required", HttpStatus.BAD_REQUEST),
+    ARABIC_NAME_REQUIRED("KYC_PERSONAL_411", "Arabic name is required", HttpStatus.BAD_REQUEST),
+    NATIONALITY_REQUIRED("KYC_PERSONAL_412", "Nationality is required", HttpStatus.BAD_REQUEST),
+    COUNTRY_OF_RESIDENCE_REQUIRED("KYC_PERSONAL_413", "Country of residence is required", HttpStatus.BAD_REQUEST),
+    COUNTRY_OF_BIRTH_REQUIRED("KYC_PERSONAL_414", "Country of birth is required", HttpStatus.BAD_REQUEST),
+    NATIONAL_ID_REQUIRED("KYC_PERSONAL_415", "National ID is required", HttpStatus.BAD_REQUEST),
+    NATIONAL_ID_EXPIRY_REQUIRED("KYC_PERSONAL_416", "National ID expiry is required", HttpStatus.BAD_REQUEST),
+    PASSPORT_NUMBER_REQUIRED("KYC_PERSONAL_417", "Passport number is required", HttpStatus.BAD_REQUEST),
+    PASSPORT_EXPIRY_REQUIRED("KYC_PERSONAL_418", "Passport expiry is required", HttpStatus.BAD_REQUEST),
+    PASSPORT_ISSUED_COUNTRY_REQUIRED("KYC_PERSONAL_419", "Passport issued country is required", HttpStatus.BAD_REQUEST),
+    REGION_REQUIRED("KYC_PERSONAL_420", "Region is required", HttpStatus.BAD_REQUEST),
+
 
     // ================= KYC - FINANCIAL =================
     FINANCIAL_KYC_NOT_FOUND("KYC_FIN_404", "Financial KYC not found", HttpStatus.NOT_FOUND),
@@ -156,6 +168,13 @@ public enum ErrorCode {
     DATA_NOT_FOUND("GEN_404", "Requested data not found", HttpStatus.NOT_FOUND),
     OPERATION_NOT_ALLOWED("GEN_403", "Operation not allowed", HttpStatus.FORBIDDEN),
 
+    // ================= Ticket =================
+    SUPPORT_ROUTING_NOT_ALLOWED("SUPPORT_001","Support routing is not allowed.",HttpStatus.FORBIDDEN),
+
+    SUPPORT_SOURCE_ROLE_REQUIRED("SUPPORT_002","Source role is required.",HttpStatus.BAD_REQUEST),
+
+    SUPPORT_TARGET_ROLE_REQUIRED("SUPPORT_003","Target role is required.",HttpStatus.BAD_REQUEST),
+
     // ================= TRADING ACCOUNT =================
     ACCOUNT_NOT_FOUND("TA-001", "Trading account not found", HttpStatus.NOT_FOUND),
 
@@ -184,8 +203,6 @@ public enum ErrorCode {
     INVALID_RESPONSE("TA-14", "Provided invalid data",HttpStatus.BAD_REQUEST),
 
     MT5_SERVICE_UNAVAILABLE("TA-013", "MT5 worker service is unavailable", HttpStatus.BAD_GATEWAY);
-
-
 
     private final String code;
     private final String defaultMessage;
