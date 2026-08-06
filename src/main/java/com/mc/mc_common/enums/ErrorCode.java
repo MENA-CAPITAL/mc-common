@@ -20,6 +20,7 @@ public enum ErrorCode {
     UNAUTHORIZED_ACCESS("AUTH_403", "Unauthorized access", HttpStatus.UNAUTHORIZED),
     FORBIDDEN_ACCESS("AUTH_404", "Forbidden access", HttpStatus.FORBIDDEN),
     INVALID_ROLE("AUTH_405", "Invalid role", HttpStatus.BAD_REQUEST),
+    EMAIL_NOT_VERIFIED("AUTH_403_002", "Email verification pending",HttpStatus.FORBIDDEN),
 
     USER_NOT_FOUND("USER_404", "User not found", HttpStatus.NOT_FOUND),
     USER_ALREADY_EXISTS("USER_409", "User already exists", HttpStatus.CONFLICT),
