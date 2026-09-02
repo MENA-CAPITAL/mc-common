@@ -12,11 +12,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.List;
 
 @Slf4j
@@ -38,7 +36,7 @@ public class GlobalExceptionHandler {
                 .errorCode(ex.getErrorCode().getCode())
                 .message(ex.getMessage())
                 .path(request.getRequestURI())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .build();
 
         return ResponseEntity.ok(response);
@@ -64,7 +62,7 @@ public class GlobalExceptionHandler {
                 .message(ErrorCode.VALIDATION_FAILED.getDefaultMessage())
                 .errors(errors)
                 .path(request.getRequestURI())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .build();
 
         return ResponseEntity.ok(response);
@@ -86,7 +84,7 @@ public class GlobalExceptionHandler {
                 .message(ErrorCode.VALIDATION_FAILED.getDefaultMessage())
                 .errors(errors)
                 .path(request.getRequestURI())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .build();
 
         return ResponseEntity.status(ErrorCode.VALIDATION_FAILED.getHttpStatus()).body(response);
@@ -104,7 +102,7 @@ public class GlobalExceptionHandler {
                 .errorCode(ErrorCode.INTERNAL_SERVER_ERROR.getCode())
                 .message(ErrorCode.INTERNAL_SERVER_ERROR.getDefaultMessage())
                 .path(request.getRequestURI())
-                .timestamp(LocalDateTime.now())
+                .timestamp(Instant.now())
                 .build();
 
         return ResponseEntity.status(ErrorCode.INTERNAL_SERVER_ERROR.getHttpStatus()).body(response);
