@@ -20,6 +20,7 @@ public enum ErrorCode {
     UNAUTHORIZED_ACCESS("AUTH_403", "Unauthorized access", HttpStatus.UNAUTHORIZED),
     FORBIDDEN_ACCESS("AUTH_404", "Forbidden access", HttpStatus.FORBIDDEN),
     INVALID_ROLE("AUTH_405", "Invalid role", HttpStatus.BAD_REQUEST),
+    EMAIL_NOT_VERIFIED("AUTH_403_002", "Email verification pending",HttpStatus.FORBIDDEN),
 
     USER_NOT_FOUND("USER_404", "User not found", HttpStatus.NOT_FOUND),
     USER_ALREADY_EXISTS("USER_409", "User already exists", HttpStatus.CONFLICT),
@@ -53,6 +54,37 @@ public enum ErrorCode {
     KYC_TYPE_REQUIRED("KYC_PERSONAL_405", "KYC type is required", HttpStatus.BAD_REQUEST),
     INVALID_KYC_TYPE("KYC_PERSONAL_406", "Invalid KYC type", HttpStatus.BAD_REQUEST),
     KYC_ALREADY_SUBMITTED("KYC_PERSONAL_409", "KYC already submitted", HttpStatus.CONFLICT),
+    FAMILY_NAME_REQUIRED("KYC_PERSONAL_410", "Family name is required", HttpStatus.BAD_REQUEST),
+    ARABIC_NAME_REQUIRED("KYC_PERSONAL_411", "Arabic name is required", HttpStatus.BAD_REQUEST),
+    NATIONALITY_REQUIRED("KYC_PERSONAL_412", "Nationality is required", HttpStatus.BAD_REQUEST),
+    COUNTRY_OF_RESIDENCE_REQUIRED("KYC_PERSONAL_413", "Country of residence is required", HttpStatus.BAD_REQUEST),
+    COUNTRY_OF_BIRTH_REQUIRED("KYC_PERSONAL_414", "Country of birth is required", HttpStatus.BAD_REQUEST),
+    NATIONAL_ID_REQUIRED("KYC_PERSONAL_415", "National ID is required", HttpStatus.BAD_REQUEST),
+    NATIONAL_ID_EXPIRY_REQUIRED("KYC_PERSONAL_416", "National ID expiry is required", HttpStatus.BAD_REQUEST),
+    PASSPORT_NUMBER_REQUIRED("KYC_PERSONAL_417", "Passport number is required", HttpStatus.BAD_REQUEST),
+    PASSPORT_EXPIRY_REQUIRED("KYC_PERSONAL_418", "Passport expiry is required", HttpStatus.BAD_REQUEST),
+    PASSPORT_ISSUED_COUNTRY_REQUIRED("KYC_PERSONAL_419", "Passport issued country is required", HttpStatus.BAD_REQUEST),
+    REGION_REQUIRED("KYC_PERSONAL_420", "Region is required", HttpStatus.BAD_REQUEST),
+
+    // ================= KYC - COMPANY =================
+
+    COMPANY_KYC_NOT_FOUND("KYC_COMPANY_404", "Company KYC record not found", HttpStatus.NOT_FOUND),
+    DATE_OF_INCORPORATION_REQUIRED("KYC_COMPANY_400", "Date of incorporation is required", HttpStatus.BAD_REQUEST),
+    INCORPORATION_NUMBER_REQUIRED("KYC_COMPANY_401", "Incorporation number is required", HttpStatus.BAD_REQUEST),
+    PRINCIPAL_BUSINESS_ACTIVITY_REQUIRED("KYC_COMPANY_402", "Principal business activity is required", HttpStatus.BAD_REQUEST),
+    BUSINESS_SECTOR_REQUIRED("KYC_COMPANY_403", "Business sector is required", HttpStatus.BAD_REQUEST),
+    COMPANY_REGISTRATION_NUMBER_REQUIRED("KYC_COMPANY_404", "Company registration number is required", HttpStatus.BAD_REQUEST),
+    COUNTRY_OF_TAX_REQUIRED("KYC_COMPANY_405", "Country of tax is required", HttpStatus.BAD_REQUEST),
+    TIN_UNAVAILABLE_REASON_REQUIRED("KYC_COMPANY_406", "TIN unavailable reason is required", HttpStatus.BAD_REQUEST),
+    OTHER_TAX_COUNTRY_REQUIRED("KYC_COMPANY_407", "Other tax country is required", HttpStatus.BAD_REQUEST),
+    COMPANY_REPRESENTATIVE_REQUIRED("KYC_COMPANY_408", "At least one company representative is required", HttpStatus.BAD_REQUEST),
+    REPRESENTATIVE_TYPE_REQUIRED("KYC_COMPANY_409", "Representative type is required", HttpStatus.BAD_REQUEST),
+    REPRESENTATIVE_FIRST_NAME_REQUIRED("KYC_COMPANY_410", "Representative first name is required", HttpStatus.BAD_REQUEST),
+    REPRESENTATIVE_LAST_NAME_REQUIRED("KYC_COMPANY_411", "Representative last name is required", HttpStatus.BAD_REQUEST),
+    REPRESENTATIVE_DOB_REQUIRED("KYC_COMPANY_412", "Representative date of birth is required", HttpStatus.BAD_REQUEST),
+    REPRESENTATIVE_NATIONALITY_REQUIRED("KYC_COMPANY_413", "Representative nationality is required", HttpStatus.BAD_REQUEST),
+    REPRESENTATIVE_ID_REQUIRED("KYC_COMPANY_414", "Representative passport number or national ID is required", HttpStatus.BAD_REQUEST),
+    REPRESENTATIVE_PEP_DECLARATION_REQUIRED("KYC_COMPANY_415", "Representative PEP declaration is required", HttpStatus.BAD_REQUEST),
 
     // ================= KYC - FINANCIAL =================
     FINANCIAL_KYC_NOT_FOUND("KYC_FIN_404", "Financial KYC not found", HttpStatus.NOT_FOUND),
@@ -156,36 +188,26 @@ public enum ErrorCode {
     DATA_NOT_FOUND("GEN_404", "Requested data not found", HttpStatus.NOT_FOUND),
     OPERATION_NOT_ALLOWED("GEN_403", "Operation not allowed", HttpStatus.FORBIDDEN),
 
+    // ================= Ticket =================
+    SUPPORT_ROUTING_NOT_ALLOWED("SUPPORT_001","Support routing is not allowed.",HttpStatus.FORBIDDEN),
+    SUPPORT_SOURCE_ROLE_REQUIRED("SUPPORT_002","Source role is required.",HttpStatus.BAD_REQUEST),
+    SUPPORT_TARGET_ROLE_REQUIRED("SUPPORT_003","Target role is required.",HttpStatus.BAD_REQUEST),
+
     // ================= TRADING ACCOUNT =================
     ACCOUNT_NOT_FOUND("TA-001", "Trading account not found", HttpStatus.NOT_FOUND),
-
     ACCOUNT_ALREADY_EXISTS("TA-002", "Trading account already exists for this type", HttpStatus.CONFLICT),
-
     MT5_ACCOUNT_CREATION_FAILED("TA-003", "Failed to create MT5 trading account", HttpStatus.BAD_GATEWAY),
-
     MT5_ACCOUNT_FETCH_FAILED("TA-004", "Failed to fetch MT5 account data", HttpStatus.BAD_GATEWAY),
-
     MT5_PASSWORD_CHANGE_FAILED("TA-005", "Failed to change MT5 account password", HttpStatus.BAD_GATEWAY),
-
     ACCOUNT_DISABLED("TA-006", "Trading account is disabled", HttpStatus.BAD_REQUEST),
-
     ACCOUNT_CLOSED("TA-007", "Trading account is closed", HttpStatus.BAD_REQUEST),
-
     INVALID_ACCOUNT_STATUS("TA-008", "Invalid account status transition", HttpStatus.BAD_REQUEST),
-
     INVALID_ACCOUNT_TYPE("TA-009", "Invalid trading account type", HttpStatus.BAD_REQUEST),
-
     INVALID_LEVERAGE("TA-010", "Invalid leverage value", HttpStatus.BAD_REQUEST),
-
     DUPLICATE_MT5_LOGIN("TA-011", "MT5 login already mapped", HttpStatus.CONFLICT),
-
     AUDIT_LOG_FAILED("TA-012", "Failed to save audit log", HttpStatus.INTERNAL_SERVER_ERROR),
-
     INVALID_RESPONSE("TA-14", "Provided invalid data",HttpStatus.BAD_REQUEST),
-
     MT5_SERVICE_UNAVAILABLE("TA-013", "MT5 worker service is unavailable", HttpStatus.BAD_GATEWAY);
-
-
 
     private final String code;
     private final String defaultMessage;
@@ -195,5 +217,18 @@ public enum ErrorCode {
         this.code = code;
         this.defaultMessage = defaultMessage;
         this.httpStatus = httpStatus;
+    }
+
+    public static ErrorCode fromCode(String code) {
+
+        for (ErrorCode errorCode : values()) {
+
+            if (errorCode.code.equals(code)) {
+
+                return errorCode;
+            }
+        }
+
+        return null;
     }
 }
