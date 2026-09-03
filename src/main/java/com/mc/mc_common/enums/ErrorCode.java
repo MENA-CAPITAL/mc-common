@@ -218,4 +218,17 @@ public enum ErrorCode {
         this.defaultMessage = defaultMessage;
         this.httpStatus = httpStatus;
     }
+
+    public static ErrorCode fromCode(String code) {
+
+        for (ErrorCode errorCode : values()) {
+
+            if (errorCode.code.equals(code)) {
+
+                return errorCode;
+            }
+        }
+
+        return null;
+    }
 }
