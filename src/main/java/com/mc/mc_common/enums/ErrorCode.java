@@ -139,6 +139,7 @@ public enum ErrorCode {
     BANK_ACCOUNT_ALREADY_EXISTS("BANK_ACC_409", "Bank account already exists", HttpStatus.CONFLICT),
     BANK_ACCOUNT_INACTIVE("BANK_ACC_400", "Bank account is inactive", HttpStatus.BAD_REQUEST),
     INVALID_BANK_CURRENCY("BANK_ACC_400_CUR", "Invalid currency for selected bank", HttpStatus.BAD_REQUEST),
+    INVALID_ACCOUNT_NUMBER("BANK_ACC_400_NUM", "Please enter a valid bank account number (at least 4 digits)", HttpStatus.BAD_REQUEST),
 
 
     // ================= DEPOSIT =================
