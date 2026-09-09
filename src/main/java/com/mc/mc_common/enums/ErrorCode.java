@@ -26,6 +26,7 @@ public enum ErrorCode {
     USER_ALREADY_EXISTS("USER_409", "User already exists", HttpStatus.CONFLICT),
     INVALID_USER_STATUS("USER_400", "Invalid user status", HttpStatus.BAD_REQUEST),
     EMAIL_ALREADY_EXISTS("USER_409_EMAIL", "Email already exists", HttpStatus.CONFLICT),
+    PHONE_ALREADY_EXISTS("USER_409_PHONE", "Phone number already exists", HttpStatus.CONFLICT),
 
     INVALID_PASSWORD("USER_PWD_400", "Invalid password", HttpStatus.BAD_REQUEST),
     CURRENT_PASSWORD_INVALID("USER_PWD_401", "Current password is incorrect", HttpStatus.BAD_REQUEST),
