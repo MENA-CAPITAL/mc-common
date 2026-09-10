@@ -74,7 +74,7 @@ public enum ErrorCode {
     INCORPORATION_NUMBER_REQUIRED("KYC_COMPANY_401", "Incorporation number is required", HttpStatus.BAD_REQUEST),
     PRINCIPAL_BUSINESS_ACTIVITY_REQUIRED("KYC_COMPANY_402", "Principal business activity is required", HttpStatus.BAD_REQUEST),
     BUSINESS_SECTOR_REQUIRED("KYC_COMPANY_403", "Business sector is required", HttpStatus.BAD_REQUEST),
-    COMPANY_REGISTRATION_NUMBER_REQUIRED("KYC_COMPANY_404", "Company registration number is required", HttpStatus.BAD_REQUEST),
+    COMPANY_REGISTRATION_NUMBER_REQUIRED("KYC_COMPANY_416", "Company registration number is required", HttpStatus.BAD_REQUEST),
     COUNTRY_OF_TAX_REQUIRED("KYC_COMPANY_405", "Country of tax is required", HttpStatus.BAD_REQUEST),
     TIN_UNAVAILABLE_REASON_REQUIRED("KYC_COMPANY_406", "TIN unavailable reason is required", HttpStatus.BAD_REQUEST),
     OTHER_TAX_COUNTRY_REQUIRED("KYC_COMPANY_407", "Other tax country is required", HttpStatus.BAD_REQUEST),
@@ -94,8 +94,9 @@ public enum ErrorCode {
     FINANCIAL_ALREADY_SUBMITTED("KYC_FIN_409", "Financial KYC already submitted", HttpStatus.CONFLICT),
     INCOME_REQUIRED("KYC_FIN_402", "Annual income is required", HttpStatus.BAD_REQUEST),
     INVALID_EMPLOYMENT_STATUS("KYC_FIN_403", "Invalid employment status", HttpStatus.BAD_REQUEST),
-    FINANCIAL_EXPERIENCE_REQUIRED("KYC_FIN_404", "Financial experience is required", HttpStatus.BAD_REQUEST),
+    FINANCIAL_EXPERIENCE_REQUIRED("KYC_FIN_406", "Financial experience is required", HttpStatus.BAD_REQUEST),
     DERIVATIVES_SUITABILITY_REQUIRED("KYC_FIN_405", "Derivatives suitability is required", HttpStatus.BAD_REQUEST),
+    TIN_EXPLANATION_REQUIRED("KYC_FIN_407", "Please explain why you are unable to obtain a TIN", HttpStatus.BAD_REQUEST),
 
     // ================= KYC - DECLARATION / COMPANY =================
     UBO_IDENTIFIED_REQUIRED("KYC_DECL_400", "UBO identification is required", HttpStatus.BAD_REQUEST),
